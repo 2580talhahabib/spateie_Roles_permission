@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/permission/edit/{id}',[PermissionController::class,'edit'])->name('permission.edit');
     Route::Delete('/permission/Delete/{id}',[PermissionController::class,'Destroy'])->name('permission.destroy');
 
+
+//  Roles Controller
+Route::get('/Role/index',[RoleController::class,'index'])->name('Role.index');
+Route::get('/Role/create',[RoleController::class,'create'])->name('Role.create');
+Route::post('/Role/store',[RoleController::class,'store'])->name('Role.store');
 });
 
 require __DIR__.'/auth.php';

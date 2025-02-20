@@ -32,7 +32,7 @@
                         <tr class="border-b">
                             <td class="px-6 py-3 text-left">{{ $permissions->id }}</td>
                             <td class="px-6 py-3 text-left">{{ $permissions->name }}</td>
-                            <td class="px-6 py-3 text-left">{{ $permissions->created_at }}</td>
+                            <td class="px-6 py-3 text-left">{{ \Carbon\Carbon::parse($permissions->created_at)->format('F j, Y') }}</td>
                             <td class="px-6 py-3 text-left">
                                 <form action="{{ route('permission.destroy',$permissions->id) }}" method="post">
                                     @csrf

@@ -23,7 +23,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('permission.index')" :active="request()->routeIs('permission.index')">
+                    <x-nav-link :href="route('Role.index')" :active="request()->routeIs('Role.index')">
                         {{ __('Roles') }}
                     </x-nav-link>
                 </div>

@@ -11,7 +11,7 @@
                 {{-- <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div> --}}
-                <form action="{{route('permission.store')}}" method="POST">
+                <form action="{{route('Role.store')}}" method="POST">
                     @csrf
                 <div class="mt-3">
                     <label for="" class="text-lg font-medium text-gray-600">Name</label>

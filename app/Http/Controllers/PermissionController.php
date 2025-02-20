@@ -15,6 +15,7 @@ class PermissionController extends Controller
        return view('permission.create');
    }
    public function store(Request $req){
+   
     $req->validate([
         'name'=>'required|unique:permissions'
     ]);

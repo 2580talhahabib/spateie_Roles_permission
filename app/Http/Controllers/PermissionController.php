@@ -8,14 +8,14 @@ use Spatie\Permission\Models\Permission;
 class PermissionController extends Controller
 {
    public function index(){
-    $permission=Permission::orderBy('created_at','DESC')->simplePaginate(5);
+    $permission=Permission::orderBy('created_at','DESC')->simplePaginate(10);
     return view('permission.index',compact('permission'));
    }
    public function create(){
        return view('permission.create');
    }
    public function store(Request $req){
-   
+
     $req->validate([
         'name'=>'required|unique:permissions'
     ]);

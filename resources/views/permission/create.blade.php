@@ -16,7 +16,7 @@
                 <div class="mt-3">
                     <label for="" class="text-lg font-medium text-gray-600">Name</label>
                     <br>
-                    <input type="text" name="name" class="border-gray-300 shadow-sm w-full rounded-lg p-2" >
+                    <input type="text" name="name" class="border-gray-300 shadow-sm w-96 rounded-lg p-2" >
                 </div>
                 @error('name')
                 <div class="text-red-600">
@@ -24,6 +24,7 @@
                 </div>
                 @enderror
 
+             
                 <div class="text-right">
                     <button type="submit" class=" border-gray-700 bg-gray-700  hover:text-gray-500 hover:bg-gray-600 text-center m-5  text-white font-bold py-2 px-4 rounded" >
                       Submit

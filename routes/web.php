@@ -48,5 +48,6 @@ Route::Delete('/Role/Destroy/{id}',[RoleController::class,'Destroy'])->name('Rol
 });
 
 Route::resource('articles',ArticleController::class);
+// Route::resource('roles', RoleController::class);
 
 require __DIR__.'/auth.php';

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -45,5 +46,7 @@ Route::get('/Role/edit/{id}',[RoleController::class,'edit'])->name('Role.edit');
 Route::Post('/Role/update/{id}',[RoleController::class,'update'])->name('Role.update');
 Route::Delete('/Role/Destroy/{id}',[RoleController::class,'Destroy'])->name('Role.Destroy');
 });
+
+Route::resource('articles',ArticleController::class);
 
 require __DIR__.'/auth.php';

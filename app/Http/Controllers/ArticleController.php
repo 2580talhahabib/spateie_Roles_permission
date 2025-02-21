@@ -13,7 +13,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $article=Article::orderBy('id')->simplePaginate(1);
+        $article=Article::orderBy('id')->simplePaginate(10);
         return view('Article.index',compact('article'));
     }
 

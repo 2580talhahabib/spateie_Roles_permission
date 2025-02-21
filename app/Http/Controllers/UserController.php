@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -11,7 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users=User::orderBy('id')->simplePaginate(1);
+        return view('User.index',compact('users'));
     }
 
     /**
@@ -19,7 +22,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -43,15 +46,29 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $role=Role::orderBy('name')->get();
+        $edit=User::find($id);
+        $hasrole=$edit->roles->pluck('id');
+        return view('User.update',compact(['edit','role','hasrole']));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $req, string $id)
     {
-        //
+        $Update=User::find($id);
+        $req->validate([
+            'name'=>'required',
+            'email'=>'required',
+        ]);
+        $Update->update([
+            'name'=>$req->name,
+            'email'=>$req->email,
+        ]);
+        $Update->syncRoles($req->role);
+        return redirect()->route('users.index')->with('success','User created Successfully');
+
     }
 
     /**
